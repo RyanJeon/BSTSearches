@@ -92,7 +92,7 @@ public class Main{
 
 
 
-        Node root = MakeTree(nums, 0, numbers.length-1);
+        Node root = MakeTree(nums, 0, nums.length-1);
 
         
         System.out.println("BFS Search Result: ");
