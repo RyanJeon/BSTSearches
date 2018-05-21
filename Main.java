@@ -49,10 +49,9 @@ public class Main{
             if(c.left != null) q.add(c.left);
             if(c.right != null) q.add(c.right);
 
-        }
-
-        
+        }        
     }
+
 
     //This function will construct binary search tree given an odd number sorted list
     public static Node MakeTree(int[] arr, int start, int end){
@@ -69,6 +68,33 @@ public class Main{
 
     }
 
+    //This is insertionSort -> time complexity O(n^2)
+    public static int[] InsertionSort(int[] arr){
+
+        int[] newarr = arr;
+         
+        for(int i = 1; i < newarr.length; i++){
+            
+            int key = newarr[i]; //current number
+            
+            int j = i-1; //before index
+            
+            while(j >= 0 && newarr[j] > key ){
+                newarr[j+1] = newarr[j]; 
+                j--;
+            }
+
+            newarr[j+1] = key;
+            
+        }
+
+        return newarr;
+
+    }
+
+    
+
+
 
     public static void main(String[] args){
         
@@ -80,15 +106,24 @@ public class Main{
         
         int[] nums = new int[n]; //allocate memory for the number integers
         
+
+
         System.out.println("Enter your numbers: ");
         for(int i = 0; i < n; i++){
             int num = reader.nextInt();
             nums[i] = num;
         }
 
+        
 
         //finished reading
         reader.close();
+
+        nums = InsertionSort(nums); //sort numbers
+
+        for(int i = 0; i < n; i++){
+            System.out.println( nums[i] );
+        }
 
 
 
